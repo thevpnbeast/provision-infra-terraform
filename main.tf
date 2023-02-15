@@ -29,3 +29,13 @@ module "network-thevpnbeast" {
   vpc_cidr        = var.vpc_cidr
   tags            = var.tags
 }
+
+module "mysql" {
+  source          = "git::https://github.com/thevpnbeast/ec2-terraform.git?ref=main"
+  aws_region      = var.aws_region
+  vpc_id          = module.network-thevpnbeast.vpc_id
+  private_subnets = module.network-thevpnbeast.private_subnets
+  public_subnets  = module.network-thevpnbeast.public_subnets
+  is_private_vpc  = false
+  tags            = var.tags
+}

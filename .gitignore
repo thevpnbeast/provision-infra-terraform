@@ -34,3 +34,6 @@ tf.*
 terraform.tfvars
 *.auto.tfvars
 # config.s3.tfbackend
+
+**/*.pem
+**/*.pub
