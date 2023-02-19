@@ -8,7 +8,7 @@ export BUCKET_NAME := thevpnbeast-terraform-states-1
 init: $(backend_file)
 	chmod +x hack/prepare_keys.sh
 	./hack/prepare_keys.sh
-	terraform init -input=false -backend-config=$(backend_file)
+	terraform init -upgrade -input=false -backend-config=$(backend_file)
 
 .PHONY: plan
 plan: init
