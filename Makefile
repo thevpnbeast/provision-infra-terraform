@@ -4,31 +4,40 @@ backend_file := $(shell find . -type f -maxdepth 1 -iname *.tfbackend)
 export AWS_PROFILE := thevpnbeast-root
 export BUCKET_NAME := thevpnbeast-terraform-states-1
 
+.PHONY: init
 init: $(backend_file)
 	chmod +x hack/prepare_keys.sh
 	./hack/prepare_keys.sh
 	terraform init -input=false -backend-config=$(backend_file)
 
+.PHONY: plan
 plan: init
 	terraform plan -input=false
 
-apply: init plan
+.PHONY: apply
+apply: init
 	terraform apply -input=false -auto-approve
 
-destroy: init plan
+.PHONY: destroy
+destroy: init
 	terraform destroy -auto-approve
 
+.PHONY: validate
 validate:
 	terraform validate
 
+.PHONY: fmt
 fmt:
 	terraform fmt -check -diff -recursive .
 
+.PHONY: tflint_version
 tflint_version:
 	tflint --version
 
+.PHONY: tflint_init
 tflint_init:
 	tflint --init
 
+.PHONY: tflint_run
 tflint_run:
 	tflint -f compact
