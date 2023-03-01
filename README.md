@@ -11,3 +11,15 @@ module "thevpnbeast-infra" {
   ...
 }
 ```
+
+## Development
+This project requires below tools while developing:
+- [pre-commit](https://pre-commit.com/)
+
+Simply run below command to prepare your development environment:
+```shell
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip3 install pre-commit
+$ pre-commit install
+```

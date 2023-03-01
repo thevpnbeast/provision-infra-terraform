@@ -10,8 +10,7 @@
 # }
 
 module "release-bucket-thevpnbeast" {
-  source = "git::https://github.com/thevpnbeast/s3-terraform.git?ref=main"
-
+  source             = "git::https://github.com/thevpnbeast/s3-terraform.git?ref=main"
   bucket_name        = var.release_bucket_name
   versioning_enabled = var.release_bucket_versioning_enabled
   encryption_enabled = var.release_bucket_encryption_enabled
@@ -20,8 +19,7 @@ module "release-bucket-thevpnbeast" {
 }
 
 module "network-thevpnbeast" {
-  source = "git::https://github.com/thevpnbeast/network-terraform.git?ref=main"
-
+  source          = "git::https://github.com/thevpnbeast/network-terraform.git?ref=main"
   aws_region      = var.aws_region
   vpc_name        = var.vpc_name
   private_subnets = var.private_subnets

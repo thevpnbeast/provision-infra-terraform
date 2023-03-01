@@ -1,4 +1,4 @@
 bucket = "thevpnbeast-terraform-states-1"
-key = "states/dev/infra.tfstate"
+key = "states/infra.tfstate"
 region = "us-east-1"
 encrypt = true
